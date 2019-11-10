@@ -40,7 +40,7 @@ def subsample(I, i_c, o_c, ks, stri, training=True, name='subsample'):
                      strides=[1, stri[0], stri[1], 1], 
                      padding="SAME",
                      name='conv2d')
-    # batch normalization
+    # layer normalization
     O = tf.contrib.layers.layer_norm(O, reuse=tf.AUTO_REUSE, scope='layer_norm')
     O = prelu(O, name='prelu')
   return O
@@ -66,7 +66,7 @@ def upsample(I, i_c, o_c, ks, stri, training=True, last_layer=False, name='upsam
                                padding="SAME",
                                name='conv2d_transpose')
     if not last_layer:
-      # batch normalization
+      # layer normalization
       O = tf.contrib.layers.layer_norm(O, reuse=tf.AUTO_REUSE, scope='layer_norm')
       O = prelu(O, name='prelu')
   return O
