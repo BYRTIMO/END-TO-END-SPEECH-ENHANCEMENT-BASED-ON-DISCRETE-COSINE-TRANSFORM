@@ -18,3 +18,7 @@ python data_prepare.py pack_waves --workspace=.. --clean_dir=path_to_clean_wav -
   2) Run train.py to train the U-net, command line:
 
 python train.py
+
+Infer：
+
+  1）Run model in ckpt, "python infer.py"
